@@ -1,2 +1,0 @@
-- Khi người dùng chọn “Cancel” trong JOptionPane.showInputDialog(), hàm sẽ trả về giá trị null.
-- Có thể tùy chỉnh các nút lựa chọn bằng cách sử dụng JOptionPane.showOptionDialog()

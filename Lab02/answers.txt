@@ -1,1 +1,0 @@
-Không. Vì java phân biệt các constructor dựa trên signature, bao gồm số lượng và kiểu dữ liệu của tham số. Cả title và category đều có kiểu dữ liệu là String. Vì vậy, java sẽ thấy hai hàm này có cùng chữ ký là DigitalVideoDisc(String), dẫn đến lỗi duplicate.
