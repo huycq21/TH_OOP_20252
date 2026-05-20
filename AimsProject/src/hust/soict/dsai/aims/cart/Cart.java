@@ -3,6 +3,7 @@ package hust.soict.dsai.aims.cart;
 import java.util.ArrayList;
 import java.util.List;
 import hust.soict.dsai.aims.media.Media;
+import java.util.Collections;
 
 public class Cart {
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
@@ -53,7 +54,6 @@ public class Cart {
         System.out.println("***************************************************");
     }
 
-    // 6. Cập nhật searchById
     public void searchById(int id) {
         boolean found = false;
         for (Media media : itemsOrdered) {
@@ -78,5 +78,15 @@ public class Cart {
         if (!found) {
             System.out.println("No match found for media with title containing: \"" + title + "\"");
         }
+    }
+
+    public void sortByTitle() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        System.out.println("Cart sorted by Title then Cost.");
+    }
+
+    public void sortByCost() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        System.out.println("Cart sorted by Cost then Title.");
     }
 }

@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.media;
 
+import java.util.Comparator;
+
 public abstract class Media {
     private int id;
     private String title;
@@ -47,4 +49,45 @@ public abstract class Media {
     public void setCost(float cost) {
         this.cost = cost;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || !(obj instanceof Media)) {
+            return false;
+        }
+
+        Media other = (Media) obj;
+
+        if (this.title == null || other.getTitle() == null) {
+            return false;
+        }
+
+        return this.title.equalsIgnoreCase(other.getTitle());
+    }
+
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new Comparator<Media>() {
+        @Override
+        public int compare(Media m1, Media m2) {
+            int titleCompare = m1.getTitle().compareToIgnoreCase(m2.getTitle());
+            if (titleCompare != 0) {
+                return titleCompare;
+            }
+            return Float.compare(m2.getCost(), m1.getCost());
+        }
+    };
+
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new Comparator<Media>() {
+        @Override
+        public int compare(Media m1, Media m2) {
+            int costCompare = Float.compare(m2.getCost(), m1.getCost());
+            if (costCompare != 0) {
+                return costCompare;
+            }
+            return m1.getTitle().compareToIgnoreCase(m2.getTitle());
+        }
+    };
 }
