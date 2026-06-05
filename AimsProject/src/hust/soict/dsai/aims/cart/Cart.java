@@ -1,15 +1,19 @@
 package hust.soict.dsai.aims.cart;
 
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import hust.soict.dsai.aims.media.Media;
 import java.util.Collections;
 
 public class Cart {
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 
     public Cart() {
         super();
+    }
+
+    public ObservableList<Media> getItemsOrdered() {
+        return this.itemsOrdered;
     }
 
     public void addMedia(Media media) {
@@ -67,6 +71,7 @@ public class Cart {
             System.out.println("No match found for media with ID: " + id);
         }
     }
+
     public void searchByTitle(String title) {
         boolean found = false;
         for (Media media : itemsOrdered) {

@@ -1,6 +1,6 @@
 package hust.soict.dsai.test.store;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.store.Store;
 
 public class StoreTest {
@@ -11,20 +11,17 @@ public class StoreTest {
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
 
-        //Test Add DVD
         System.out.println("--- Testing Add DVD ---");
-        myStore.addDVD(dvd1);
-        myStore.addDVD(dvd2);
-        myStore.addDVD(dvd3);
+        myStore.addMedia(dvd1);
+        myStore.addMedia(dvd2);
+        myStore.addMedia(dvd3);
         myStore.printStore();
 
-        //Test Remove DVD
         System.out.println("\n--- Testing Remove DVD ---");
-        myStore.removeDVD(dvd2);
+        myStore.removeMedia(dvd2);
         myStore.printStore();
 
-        //Test Remove Non-existent DVD
         DigitalVideoDisc dvd4 = new DigitalVideoDisc("Avengers");
-        myStore.removeDVD(dvd4);
+        myStore.removeMedia(dvd4);
     }
 }

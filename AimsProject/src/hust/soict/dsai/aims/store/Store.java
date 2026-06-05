@@ -35,4 +35,8 @@ public class Store {
         }
         System.out.println("***********************************");
     }
+
+    public java.util.ArrayList<Media> getItemsInStore() {
+        return this.itemsInStore;
+    }
 }

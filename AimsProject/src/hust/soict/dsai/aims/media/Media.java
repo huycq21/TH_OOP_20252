@@ -49,7 +49,7 @@ public abstract class Media {
     public void setCost(float cost) {
         this.cost = cost;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -62,11 +62,16 @@ public abstract class Media {
 
         Media other = (Media) obj;
 
-        if (this.title == null || other.getTitle() == null) {
-            return false;
+        if (this.title == null) {
+            return other.getTitle() == null;
         }
 
         return this.title.equalsIgnoreCase(other.getTitle());
+    }
+
+    @Override
+    public int hashCode() {
+        return title != null ? title.toLowerCase().hashCode() : 0;
     }
 
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new Comparator<Media>() {
